@@ -20,7 +20,7 @@ while figura != "4":
     elif figura == "3":
         radio = float(input("Introduzca el radio del círculo: "))
         print("La superficie del círculo es", 3.1416*radio**2, "cm2")
-    elif figura == "4":
+    elif figura != "4":
         break
     else:
         print("Opción incorrecta")

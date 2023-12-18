@@ -5,8 +5,7 @@ diaSemana = int(input("Día 1 es (0 lunes, 6 domingo): "))
 print("L\tM\tX\tJ\tV\tS\tD")
 
 # Imprimimos espacios en blanco hasta el dia de la semana indicado
-for i in range(diaSemana):
-    print("\t", end="")
+print("\t" * diaSemana, end="")
 
 # Imprimimos los dias del mes, si el dia es domingo, hacemos un salto de linea
 for i in range(1, diasMes+1):
