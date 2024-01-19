@@ -5,10 +5,10 @@ def es_primo(numero):
     if numero < 2:
         return False
 
-    for i in range(2, int(numero ** 0.5) + 1):
-        if numero % i == 0:
-            return False
-    return True
+    i = 2
+    while (i <= int(numero ** 0.5) + 1) and (numero % i != 0):
+        i += 1
+    return numero % i == 0
 
 
 print(f"Numeros primos [2-{numero}]:")
