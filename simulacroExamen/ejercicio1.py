@@ -7,19 +7,19 @@ def Infectar(ciudad, fila_infectado, columna_infectado, dia):
 
     # ARRIBA
     if fila_infectado - 1 >= 0 and ciudad[fila_infectado - 1][columna_infectado] == "SANO":
-        ciudad[fila_infectado - 1][columna_infectado] = f"I-{dia}"
+        ciudad[fila_infectado - 1][columna_infectado] = f"I-{dia} "
         infectados += 1
     # DERECHA
     if columna_infectado + 1 <= len(ciudad[0]) - 1 and ciudad[fila_infectado][columna_infectado + 1] == "SANO":
-        ciudad[fila_infectado][columna_infectado + 1] = f"I-{dia}"
+        ciudad[fila_infectado][columna_infectado + 1] = f"I-{dia} "
         infectados += 1
     # ABAJO
     if fila_infectado + 1 <= len(ciudad) - 1 and ciudad[fila_infectado + 1][columna_infectado] == "SANO":
-        ciudad[fila_infectado + 1][columna_infectado] = f"I-{dia}"
+        ciudad[fila_infectado + 1][columna_infectado] = f"I-{dia} "
         infectados += 1
     # IZQUIERDA
     if columna_infectado - 1 >= 0 and ciudad[fila_infectado][columna_infectado - 1] == "SANO":
-        ciudad[fila_infectado][columna_infectado - 1] = f"I-{dia}"
+        ciudad[fila_infectado][columna_infectado - 1] = f"I-{dia} "
         infectados += 1
 
     return infectados
@@ -40,7 +40,7 @@ def Contagiar(ciudad):
             columna = 0
             while columna < len(ciudad[0]) and contagiados < personas_totales:
 
-                if ciudad[fila][columna] != "SANO" and ciudad[fila][columna] != f"I-{dia}":
+                if ciudad[fila][columna] != "SANO" and ciudad[fila][columna] != f"I-{dia} ":
                     contagiados += Infectar(ciudad, fila, columna, dia)
                 columna += 1
             fila += 1
@@ -50,12 +50,12 @@ def Contagiar(ciudad):
 
 
 def MostarCiudad(ciudad, dia):
-    print(f"Dia {dia}:")
+    print(f"\nDia {dia}:")
 
     for i in range(len(ciudad)):
+        print(end="\n\t\t")
         for j in range(len(ciudad[0])):
-            print(ciudad[i][j], end=" ")
-        print()
+            print(ciudad[i][j], end="\t")
 
 
 def GenerarCiudad(n_filas, nColumnas):
@@ -78,4 +78,4 @@ def GenerarCiudad(n_filas, nColumnas):
 n_filas = int(input("Introduce el numero de filas: "))
 n_columnas = int(input("Introduce el numero de columnas: "))
 ciudad_juego = GenerarCiudad(n_filas, n_columnas)
-print(f"Dias totales:  {Contagiar(ciudad_juego)}")
+print(f"\nDias totales:  {Contagiar(ciudad_juego)}")
