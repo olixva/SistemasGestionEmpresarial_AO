@@ -25,13 +25,10 @@ class Aula:
         return f"Ciclo: {self.ciclo} \nCurso: {self.curso} \nAlumnos: {alumnos}"
 
     def ExisteAlumno(self, nombre):
-        encontrado = False
         indice = 0
-        while encontrado is False and indice < len(self.listadoAlumnos):
-            if self.listadoAlumnos[indice].nombre == nombre:
-                encontrado = True
+        while indice < len(self.listadoAlumnos) and self.listadoAlumnos[indice].nombre != nombre:
             indice += 1
-        return encontrado
+        return indice < len(self.listadoAlumnos)
 
     def AlumnosMenores(self):
         rangos = dict()
